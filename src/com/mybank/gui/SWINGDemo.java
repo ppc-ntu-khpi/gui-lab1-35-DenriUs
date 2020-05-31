@@ -1,5 +1,6 @@
 package com.mybank.gui;
 
+import com.mybank.data.DataSource;
 import com.mybank.domain.Account;
 import com.mybank.domain.Bank;
 import com.mybank.domain.CheckingAccount;
@@ -114,7 +115,7 @@ public class SWINGDemo {
         return customerReport.toString();
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
         Bank.addCustomer("John", "Doe");
         Bank.addCustomer("Fox", "Mulder");
@@ -123,6 +124,9 @@ public class SWINGDemo {
         Bank.getCustomer(1).addAccount(new SavingsAccount(1000, 3));
         Bank.getCustomer(2).addAccount(new CheckingAccount(1000, 500));
         
+        DataSource dataSource = new DataSource("data/test.dat");
+        dataSource.loadData();
+                
         SWINGDemo demo = new SWINGDemo();        
         demo.launchFrame();
     }
