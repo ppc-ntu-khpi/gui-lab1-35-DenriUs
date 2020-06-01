@@ -81,12 +81,12 @@ public class SWINGDemo {
     }
     
     private String getCustomersReport() {
-        StringBuilder customerReport = new StringBuilder();
+        StringBuilder customersReport = new StringBuilder();
         
         for(int i = 0; i < Bank.getNumberOfCustomers(); i++) {
             Customer customer = Bank.getCustomer(i);
             
-            customerReport.append("<br>&nbsp;<b><span style=\"font-size:2em;\">")
+            customersReport.append("<br>&nbsp;<b><span style=\"font-size:2em;\">")
                     .append(customer.getLastName())
                     .append(", ")
                     .append(customer.getFirstName())
@@ -95,24 +95,24 @@ public class SWINGDemo {
             for(int j = 0; j < customer.getNumberOfAccounts(); j++) {
                 Account account = customer.getAccount(j);
                 
-                customerReport.append("&nbsp;<b>Acc Type: </b>");
+                customersReport.append("&nbsp;<b>Acc Type: </b>");
                 
                 if (account instanceof CheckingAccount) {
-                    customerReport.append("Checking");
+                    customersReport.append("Checking");
                 } else if (account instanceof SavingsAccount) {
-                    customerReport.append("Savings");
+                    customersReport.append("Savings");
                 } else {
-                    customerReport.append("Unknown");
+                    customersReport.append("Unknown");
                     continue;
                 }
                 
-                customerReport.append("<br>&nbsp;<b>Balance: <span style=\"color:red;\">$")
+                customersReport.append("<br>&nbsp;<b>Balance: <span style=\"color:red;\">$")
                         .append(account.getBalance())
                         .append("</span></b>");
             }
         }
         
-        return customerReport.toString();
+        return customersReport.toString();
     }
     
     public static void main(String[] args) throws Exception {
