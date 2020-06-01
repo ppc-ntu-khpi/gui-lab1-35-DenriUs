@@ -115,15 +115,7 @@ public class SWINGDemo {
         return customersReport.toString();
     }
     
-    public static void main(String[] args) throws Exception {
-        
-        Bank.addCustomer("John", "Doe");
-        Bank.addCustomer("Fox", "Mulder");
-        Bank.addCustomer("Dana", "Scully");
-        Bank.getCustomer(0).addAccount(new CheckingAccount(2000));
-        Bank.getCustomer(1).addAccount(new SavingsAccount(1000, 3));
-        Bank.getCustomer(2).addAccount(new CheckingAccount(1000, 500));
-        
+    public static void main(String[] args) throws Exception {     
         DataSource dataSource = new DataSource("data/test.dat");
         dataSource.loadData();
                 
